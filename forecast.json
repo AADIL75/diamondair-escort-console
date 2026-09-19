@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T21:54:12.915Z",
+  "generatedAt": "2026-09-19T22:04:47.078Z",
   "days": [
     {
       "date": "04 Sep 26",
@@ -60,7 +60,9 @@
           "company": "YYYY/FFFF SNR MAN DIR OF SUMITOMO CHEMICAL",
           "status": "",
           "agentName": "",
-          "updatedAt": "2026-09-19T21:54:12.914Z"
+          "updatedAt": "2026-09-19T21:54:12.914Z",
+          "anaFlag": "cancelled",
+          "anaFlagAt": "2026-09-19T22:04:47.078Z"
         }
       ]
     }
