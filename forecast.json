@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T21:32:56.711Z",
+  "generatedAt": "2026-09-19T21:32:58.800Z",
   "days": [
     {
       "date": "04 Sep 26",
@@ -87,9 +87,9 @@
           "nameEn": "GOTO/MUNETOSHI",
           "nameJp": "後藤　宗利",
           "company": "YYYY/FFFF PRES OF MAKITA",
-          "status": "",
+          "status": "Pending",
           "agentName": "",
-          "updatedAt": "2026-09-19T21:15:49.027Z"
+          "updatedAt": "2026-09-19T21:32:58.800Z"
         }
       ]
     }
