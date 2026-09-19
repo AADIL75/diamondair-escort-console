@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T21:35:26.873Z",
+  "generatedAt": "2026-09-19T21:54:06.615Z",
   "days": [
     {
       "date": "04 Sep 26",
@@ -27,40 +27,6 @@
           "status": "Rejected",
           "agentName": "",
           "updatedAt": "2026-09-19T21:35:26.872Z"
-        }
-      ]
-    },
-    {
-      "date": "05 Sep 26",
-      "entries": [
-        {
-          "locator": "DE8NEY",
-          "flight": "NH211",
-          "category": "VIP",
-          "code": "C2",
-          "nameEn": "SUZUKI/KOICHI",
-          "nameJp": "鈴木　幸一",
-          "company": "YYYY/FFFF CHMN N CEO OF INTERNET INITIATIVE JP -A",
-          "status": "Pending",
-          "agentName": "",
-          "updatedAt": "2026-09-19T21:32:54.894Z"
-        }
-      ]
-    },
-    {
-      "date": "06 Sep 26",
-      "entries": [
-        {
-          "locator": "FJ6QNE",
-          "flight": "NH211",
-          "category": "VIP",
-          "code": "V2",
-          "nameEn": "KONOMI/RYOTARO",
-          "nameJp": "許斐　亮太郎",
-          "company": "YYYY/SXSX HOUSE OF REP -ANY",
-          "status": "Pending",
-          "agentName": "",
-          "updatedAt": "2026-09-19T21:32:56.711Z"
         }
       ]
     },
