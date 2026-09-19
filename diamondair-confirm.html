@@ -17,19 +17,22 @@
   .day { margin-bottom: 22px; }
   .day-label { font-size: 13px; font-weight: 700; color: #647085; text-transform: uppercase; letter-spacing: .4px; margin: 0 0 8px 2px; }
   .entry { background: #fff; border: 1px solid #d7dbe0; border-radius: 10px; padding: 16px 18px; margin-bottom: 10px; }
-  .entry.cancelled { background: #f3f4f6; }
+  .entry.cancelled { background: #f3f4f6; border-color: #dfe2e6; }
+  .entry.cancelled .name-en { color: #8a93a3; text-decoration: line-through; }
   .entry-top { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 10px; }
   .pill { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; }
   .pill.flight { background: #eef0fb; color: #213489; }
   .pill.cat-vip { background: #fde7e7; color: #a02020; }
   .pill.cat-maaa { background: #e7f0fd; color: #1a5aa0; }
+  .pill.new-flag { background: #fdf2df; color: #935a00; }
+  .pill.cancelled-flag { background: #eceef1; color: #5a6270; }
   .name-en { font-weight: 700; font-size: 14px; }
   .name-jp { font-size: 12px; color: #647085; }
   .company { font-size: 12px; color: #647085; flex: 1 1 auto; min-width: 160px; }
   .locator-tag { font-size: 10px; color: #a3abb8; font-family: monospace; }
-  .changenote { font-size: 12px; padding: 8px 10px; border-radius: 6px; margin-bottom: 10px; }
-  .changenote.added { background: #fdf2df; color: #935a00; }
-  .changenote.cancelled-note { background: #eef0f3; color: #647085; }
+  .changenote { font-size: 12.5px; font-weight: 600; padding: 9px 12px; border-radius: 6px; margin-bottom: 12px; border-left: 3px solid transparent; }
+  .changenote.added { background: #fdf2df; color: #935a00; border-left-color: #d9a441; }
+  .changenote.cancelled-note { background: #eef0f3; color: #5a6270; border-left-color: #a3abb8; }
   .action-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
   .status-btns { display: flex; gap: 6px; }
   .status-btns button { padding: 8px 14px; border: 1px solid #d7dbe0; border-radius: 6px; background: #fff; font-size: 12px; font-weight: 700; cursor: pointer; font-family: inherit; }
@@ -146,6 +149,10 @@ function renderEntry(entry) {
   var card = document.createElement('div');
   card.className = 'entry';
 
+  var isCancelled = entry.anaFlag === 'cancelled';
+  var isNew = entry.anaFlag === 'new';
+  if (isCancelled) card.classList.add('cancelled');
+
   var hasKnownStatus = STATUS_VALUES.indexOf(entry.status) !== -1;
   var hasExisting = hasKnownStatus || !!entry.agentName;
 
@@ -154,11 +161,38 @@ function renderEntry(entry) {
   top.innerHTML =
     '<span class="pill flight">' + entry.flight + '</span>' +
     '<span class="pill ' + (entry.category === 'MAAA' ? 'cat-maaa' : 'cat-vip') + '">' + entry.category + ' ' + entry.code + '</span>' +
+    (isNew ? '<span class="pill new-flag">NEW</span>' : '') +
+    (isCancelled ? '<span class="pill cancelled-flag">CANCELLED</span>' : '') +
     '<span class="name-en">' + entry.nameEn + '</span>' +
     '<span class="name-jp">' + entry.nameJp + '</span>' +
     '<span class="company">' + entry.company + '</span>' +
     '<span class="locator-tag">' + entry.locator + '</span>';
   card.appendChild(top);
+
+  // Clearly flag anything ANA added or cancelled after the original forecast
+  // was sent — this is the exact "clearly indicate cancelled by ANA / new
+  // request" requirement, so it must not be missable.
+  if (isNew) {
+    var addedNote = document.createElement('div');
+    addedNote.className = 'changenote added';
+    addedNote.textContent = '🆕 New request added by ANA — please confirm below.';
+    card.appendChild(addedNote);
+  } else if (isCancelled) {
+    var cancelledNote = document.createElement('div');
+    cancelledNote.className = 'changenote cancelled-note';
+    cancelledNote.textContent = '✕ Cancelled by ANA' + (entry.anaFlagAt ? (' — ' + formatUpdatedAt(entry.anaFlagAt)) : '') + '. No action needed from DiamondAir.';
+    card.appendChild(cancelledNote);
+  }
+
+  // A cancelled row has nothing left to do — show it (so it isn't just
+  // silently missing) but don't offer any controls for it.
+  if (isCancelled) {
+    var noAction = document.createElement('div');
+    noAction.className = 'no-action';
+    noAction.textContent = hasExisting ? ('Your last answer: ' + (hasKnownStatus ? entry.status : '—') + (entry.agentName ? (' / ' + entry.agentName) : '')) : 'No response was recorded before this was cancelled.';
+    card.appendChild(noAction);
+    return card;
+  }
 
   var actionRow = document.createElement('div');
   actionRow.className = 'action-row';
