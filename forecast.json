@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T21:32:58.800Z",
+  "generatedAt": "2026-09-19T21:35:20.019Z",
   "days": [
     {
       "date": "04 Sep 26",
@@ -33,18 +33,6 @@
     {
       "date": "05 Sep 26",
       "entries": [
-        {
-          "locator": "",
-          "flight": "NH211",
-          "category": "MAAA",
-          "code": "",
-          "nameEn": "MAAA x 0",
-          "nameJp": "",
-          "company": "",
-          "status": "",
-          "agentName": "",
-          "updatedAt": "2026-09-19T21:15:49.027Z"
-        },
         {
           "locator": "DE8NEY",
           "flight": "NH211",
