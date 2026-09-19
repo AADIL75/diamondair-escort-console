@@ -35,6 +35,7 @@
   .pill.flight { background: #eef0fb; color: #213489; }
   .pill.cat-vip { background: #fde7e7; color: #a02020; }
   .pill.cat-maaa { background: #e7f0fd; color: #1a5aa0; }
+  .pill.connection { background: #fff1d6; color: #8a5a00; }
   .name-en { font-weight: 700; font-size: 14px; }
   .name-jp { font-size: 12px; color: #647085; }
   .locator-tag { font-size: 10px; color: #a3abb8; font-family: monospace; margin-left: auto; }
@@ -226,6 +227,7 @@ function renderEntry(entry) {
   top.innerHTML =
     '<span class="pill flight">' + escHtml_(entry.flight) + '</span>' +
     '<span class="pill ' + (entry.category === 'MAAA' ? 'cat-maaa' : 'cat-vip') + '">' + escHtml_(entry.category) + ' ' + escHtml_(entry.code) + '</span>' +
+    (entry.connection ? '<span class="pill connection">&#9992; ' + escHtml_(entry.connection) + '</span>' : '') +
     '<span class="name-en">' + escHtml_(entry.nameEn) + '</span>' +
     '<span class="name-jp">' + escHtml_(entry.nameJp) + '</span>' +
     '<span class="locator-tag">' + escHtml_(entry.locator) + '</span>';
