@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T22:21:25.205Z",
+  "generatedAt": "2026-09-19T22:26:18.923Z",
   "days": [
     {
       "date": "04 Sep 26",
@@ -24,9 +24,10 @@
           "nameEn": "MORIMOTO/HIRONORI",
           "nameJp": "森本　浩徳",
           "company": "SNR MAN DIR OF MITSUI SUMITOMO INSURANCE",
-          "status": "Rejected",
+          "status": "Confirmed",
           "agentName": "",
-          "updatedAt": "2026-09-19T21:35:26.872Z"
+          "updatedAt": "2026-09-19T22:26:18.912Z",
+          "anaFlag": ""
         }
       ]
     },
