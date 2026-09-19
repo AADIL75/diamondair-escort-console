@@ -64,44 +64,24 @@
 
 <script>
 // ============================================================================
-// Same Form endpoint + entry IDs already proven working against "Test - VIP
-// List" — swap these for the real production Form's values when this moves
-// off the test sheet.
+// Same Form endpoint + entry IDs already proven working — swap these for the
+// real production Form's values when this moves off the test sheet/Form.
 // ============================================================================
 var FORM_ACTION       = 'https://docs.google.com/forms/d/e/1FAIpQLSfMwyXtNYPM15wHDlmiFmc1PGAN9w99weXiUxS3cGf7OEAwxA/formResponse';
 var ENTRY_LOCATOR     = 'entry.120528962';  // Locator
 var ENTRY_STATUS      = 'entry.1403594564'; // Escort status
 var ENTRY_AGENT_NAME  = 'entry.20045887';   // DiamondAir agent name
 
-// status.json lives in the same GitHub repo this page is hosted in — the
-// trigger pushes to it after every submission (see GITHUB_STATUS_SETUP.txt).
-// raw.githubusercontent.com serves it with permissive CORS and no login,
-// same as the Form endpoint — no Google Workspace restriction involved.
-// FILL IN once the repo exists: https://raw.githubusercontent.com/<owner>/<repo>/<branch>/status.json
-var STATUS_JSON_URL = 'https://raw.githubusercontent.com/aadil75/diamondair-escort-console/main/status.json';
+// forecast.json lives in the same GitHub repo this page is hosted in — the
+// Apps Script side (sendForecastToDiamondAir / sendChaseUpEmail / every Form
+// submission) regenerates and pushes it. raw.githubusercontent.com serves it
+// with permissive CORS and no login, same as the Form endpoint — no Google
+// Workspace restriction involved. This is now the ONLY source of the rows on
+// this page — there's no hand-typed sample data any more.
+var FORECAST_JSON_URL = 'https://raw.githubusercontent.com/aadil75/diamondair-escort-console/main/forecast.json';
 // ============================================================================
 
-// Sample data — real rows pulled from "Test - VIP List" (untouched by earlier
-// testing) so Save buttons here write to genuine rows you can check. Once
-// this design is approved, this array gets generated from the actual current
-// forecast instead of being hand-typed.
-var DAYS = [
-  {
-    date: 'Wed 03 Sep',
-    entries: [
-      { locator: 'DXRUB2', flight: 'NH212', category: 'VIP', code: 'C1', nameEn: 'OTA/MITSURU', nameJp: '太田 充', company: 'CHMN OF DEVELOPMENT BANK OF JAPAN' },
-      { locator: 'FQVKOO', flight: 'NH212', category: 'VIP', code: 'C2', nameEn: 'ARAKAWA/RYUJI', nameJp: '荒川 隆治', company: 'CHMN OF ALFRESA HD' },
-      { locator: 'EBHGAM', flight: 'NH212', category: 'VIP', code: 'C2', nameEn: 'SUMI/SHUZO', nameJp: '隅 修三', company: 'CHMN EMERITUS OF TOKIO MARINE N NICHIDO' }
-    ]
-  },
-  {
-    date: 'Thu 04 Sep',
-    entries: [
-      { locator: '82UVTC', flight: 'NH211', category: 'VIP', code: 'C3', nameEn: 'ICHIJO/KAZUO', nameJp: '一條 和生', company: 'PROF OF HITOTSUBASHI UNIVERSITY' },
-      { locator: 'DA8FGS', flight: 'NH212', category: 'VIP', code: 'C1', nameEn: 'FUJIMOTO/MASAYOSHI', nameJp: '藤本 昌義', company: 'CHMN OF SOJITZ' }
-    ]
-  }
-];
+var STATUS_VALUES = ['Confirmed', 'Rejected', 'Pending'];
 
 function buildUrl(locator, status, agentName) {
   var params = [
@@ -116,12 +96,20 @@ function submitOnce(locator, status, agentName) {
   return fetch(buildUrl(locator, status, agentName), { method: 'GET', mode: 'no-cors' });
 }
 
-function render(statusMap) {
-  statusMap = statusMap || {};
+function render(days) {
+  days = days || [];
   var daysEl = document.getElementById('days');
   daysEl.innerHTML = '';
 
-  DAYS.forEach(function (day) {
+  if (days.length === 0) {
+    var note = document.createElement('div');
+    note.className = 'load-note';
+    note.textContent = 'No requests are listed for you right now — check back after ANA sends the next forecast.';
+    daysEl.appendChild(note);
+    return;
+  }
+
+  days.forEach(function (day) {
     var dayDiv = document.createElement('div');
     dayDiv.className = 'day';
 
@@ -130,8 +118,8 @@ function render(statusMap) {
     label.textContent = day.date;
     dayDiv.appendChild(label);
 
-    day.entries.forEach(function (entry) {
-      dayDiv.appendChild(renderEntry(entry, statusMap[entry.locator] || null));
+    (day.entries || []).forEach(function (entry) {
+      dayDiv.appendChild(renderEntry(entry));
     });
 
     daysEl.appendChild(dayDiv);
@@ -147,9 +135,19 @@ function formatUpdatedAt(iso) {
   }
 }
 
-function renderEntry(entry, existing) {
+// entry comes straight from forecast.json: { locator, flight, category, code,
+// nameEn, nameJp, company, status, agentName, updatedAt }. "status" may be
+// one of Confirmed/Rejected/Pending (DiamondAir's own answer), or an
+// ANA-internal Escort RQ Status value (e.g. "RQ sent") that isn't one of the
+// three buttons — in that case we still show the row, just with no button
+// pre-highlighted, since as far as DiamondAir is concerned it hasn't been
+// answered yet.
+function renderEntry(entry) {
   var card = document.createElement('div');
   card.className = 'entry';
+
+  var hasKnownStatus = STATUS_VALUES.indexOf(entry.status) !== -1;
+  var hasExisting = hasKnownStatus || !!entry.agentName;
 
   var top = document.createElement('div');
   top.className = 'entry-top';
@@ -167,13 +165,13 @@ function renderEntry(entry, existing) {
 
   var statusBtns = document.createElement('div');
   statusBtns.className = 'status-btns';
-  var draftStatus = existing ? existing.status : null;
-  ['Confirmed', 'Rejected', 'Pending'].forEach(function (v) {
+  var draftStatus = hasKnownStatus ? entry.status : null;
+  STATUS_VALUES.forEach(function (v) {
     var b = document.createElement('button');
     b.type = 'button';
     b.dataset.v = v;
     b.textContent = v;
-    if (existing && existing.status === v) b.classList.add('active');
+    if (draftStatus === v) b.classList.add('active');
     b.addEventListener('click', function () {
       draftStatus = v;
       Array.prototype.forEach.call(statusBtns.querySelectorAll('button'), function (btn) {
@@ -189,7 +187,7 @@ function renderEntry(entry, existing) {
   agentInput.type = 'text';
   agentInput.className = 'agent-input';
   agentInput.placeholder = 'Name of agent doing the escort';
-  if (existing && existing.agentName) agentInput.value = existing.agentName;
+  if (entry.agentName) agentInput.value = entry.agentName;
   actionRow.appendChild(agentInput);
 
   var saveBtn = document.createElement('button');
@@ -198,20 +196,20 @@ function renderEntry(entry, existing) {
   // Already has a saved answer (from a prior visit, or another device) ->
   // this button now just re-submits any change, so it starts enabled and
   // labeled "Update" instead of waiting for a fresh button click.
-  saveBtn.textContent = existing ? 'Update' : 'Save';
-  saveBtn.disabled = !existing;
+  saveBtn.textContent = hasExisting ? 'Update' : 'Save';
+  saveBtn.disabled = !hasExisting;
   actionRow.appendChild(saveBtn);
 
   var savedTag = document.createElement('span');
   savedTag.className = 'saved-tag';
-  savedTag.style.display = existing ? 'inline' : 'none';
+  savedTag.style.display = hasExisting ? 'inline' : 'none';
   savedTag.textContent = '✓ Saved — ANA notified';
   actionRow.appendChild(savedTag);
 
   var updatedLine = document.createElement('div');
   updatedLine.className = 'updated-line';
-  updatedLine.style.display = existing ? 'block' : 'none';
-  updatedLine.textContent = existing ? ('Last updated: ' + formatUpdatedAt(existing.updatedAt)) : '';
+  updatedLine.style.display = hasExisting && entry.updatedAt ? 'block' : 'none';
+  updatedLine.textContent = (hasExisting && entry.updatedAt) ? ('Last updated: ' + formatUpdatedAt(entry.updatedAt)) : '';
   actionRow.appendChild(updatedLine);
 
   card.appendChild(actionRow);
@@ -248,31 +246,31 @@ function renderEntry(entry, existing) {
   return card;
 }
 
-// Bootstrap: try to load current status from GitHub before first render, so
+// Bootstrap: load the current forecast from GitHub before first render, so
 // rows already answered show correctly from the very first paint. If the
-// fetch fails (repo not public yet, placeholder URL, offline, etc.) the page
-// still works fully as a fresh/blank form — this is a nice-to-have layer on
-// top of the core submit flow, never a blocker to using the page.
-function fetchStatusAndRender() {
-  if (STATUS_JSON_URL.indexOf('PASTE_') !== -1) {
-    render({}); // placeholder URL not filled in yet — just render blank
+// fetch fails (repo not public yet, placeholder URL, offline, no forecast
+// pushed yet, etc.) the page shows a friendly "nothing listed yet" message
+// rather than breaking.
+function fetchForecastAndRender() {
+  if (FORECAST_JSON_URL.indexOf('PASTE_') !== -1) {
+    render([]);
     return;
   }
-  fetch(STATUS_JSON_URL + '?t=' + Date.now()) // cache-bust GitHub's CDN
+  fetch(FORECAST_JSON_URL + '?t=' + Date.now()) // cache-bust GitHub's CDN
     .then(function (resp) {
-      if (!resp.ok) throw new Error('status.json fetch failed: ' + resp.status);
+      if (!resp.ok) throw new Error('forecast.json fetch failed: ' + resp.status);
       return resp.json();
     })
-    .then(function (statusMap) {
-      render(statusMap);
+    .then(function (data) {
+      render((data && data.days) || []);
     })
     .catch(function (err) {
-      console.warn('Could not load current status (page still fully usable):', err);
-      render({});
+      console.warn('Could not load the current forecast (page still usable once it can reload):', err);
+      render([]);
     });
 }
 
-fetchStatusAndRender();
+fetchForecastAndRender();
 </script>
 </body>
 </html>
