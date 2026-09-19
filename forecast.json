@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T22:31:58.905Z",
+  "generatedAt": "2026-09-19T22:44:25.264Z",
   "days": [
     {
       "date": "04 Sep 26",
@@ -88,10 +88,10 @@
           "nameEn": "NIWA/SHUNSUKE",
           "nameJp": "丹羽　俊介",
           "company": "YYYY/FFFF PRES OF  CENTRAL JAPAN RAILWAY",
-          "status": "",
+          "status": "Confirmed",
           "agentName": "",
-          "updatedAt": "2026-09-19T22:31:58.902Z",
-          "anaFlag": "new",
+          "updatedAt": "2026-09-19T22:44:25.264Z",
+          "anaFlag": "",
           "anaFlagAt": "2026-09-19T22:31:58.905Z"
         }
       ]
