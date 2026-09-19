@@ -37,8 +37,7 @@
   .pill.cat-maaa { background: #e7f0fd; color: #1a5aa0; }
   .name-en { font-weight: 700; font-size: 14px; }
   .name-jp { font-size: 12px; color: #647085; }
-  .company { font-size: 12px; color: #647085; flex: 1 1 auto; min-width: 160px; }
-  .locator-tag { font-size: 10px; color: #a3abb8; font-family: monospace; }
+  .locator-tag { font-size: 10px; color: #a3abb8; font-family: monospace; margin-left: auto; }
   /* Full-bleed solid banner across the top of the card — deliberately loud
      (solid saturated color, white bold text, icon) since these two states
      must never be missable the way a silent add/remove used to be. */
@@ -229,7 +228,6 @@ function renderEntry(entry) {
     '<span class="pill ' + (entry.category === 'MAAA' ? 'cat-maaa' : 'cat-vip') + '">' + escHtml_(entry.category) + ' ' + escHtml_(entry.code) + '</span>' +
     '<span class="name-en">' + escHtml_(entry.nameEn) + '</span>' +
     '<span class="name-jp">' + escHtml_(entry.nameJp) + '</span>' +
-    '<span class="company">' + escHtml_(entry.company) + '</span>' +
     '<span class="locator-tag">' + escHtml_(entry.locator) + '</span>';
   card.appendChild(top);
 
