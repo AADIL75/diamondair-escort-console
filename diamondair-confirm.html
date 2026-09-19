@@ -42,6 +42,8 @@
   .saved-tag { font-size: 12px; font-weight: 700; color: #1e7d32; }
   .name-error { font-size: 11px; color: #c62828; margin-top: 4px; }
   .no-action { font-size: 12px; color: #8a93a3; font-style: italic; }
+  .updated-line { font-size: 11px; color: #8a93a3; margin-top: 4px; width: 100%; }
+  .load-note { font-size: 12px; color: #8a93a3; padding: 10px 2px; }
 </style>
 </head>
 <body>
@@ -70,6 +72,13 @@ var FORM_ACTION       = 'https://docs.google.com/forms/d/e/1FAIpQLSfMwyXtNYPM15w
 var ENTRY_LOCATOR     = 'entry.120528962';  // Locator
 var ENTRY_STATUS      = 'entry.1403594564'; // Escort status
 var ENTRY_AGENT_NAME  = 'entry.20045887';   // DiamondAir agent name
+
+// status.json lives in the same GitHub repo this page is hosted in — the
+// trigger pushes to it after every submission (see GITHUB_STATUS_SETUP.txt).
+// raw.githubusercontent.com serves it with permissive CORS and no login,
+// same as the Form endpoint — no Google Workspace restriction involved.
+// FILL IN once the repo exists: https://raw.githubusercontent.com/<owner>/<repo>/<branch>/status.json
+var STATUS_JSON_URL = 'https://raw.githubusercontent.com/aadil75/diamondair-escort-console/main/status.json';
 // ============================================================================
 
 // Sample data — real rows pulled from "Test - VIP List" (untouched by earlier
@@ -107,7 +116,8 @@ function submitOnce(locator, status, agentName) {
   return fetch(buildUrl(locator, status, agentName), { method: 'GET', mode: 'no-cors' });
 }
 
-function render() {
+function render(statusMap) {
+  statusMap = statusMap || {};
   var daysEl = document.getElementById('days');
   daysEl.innerHTML = '';
 
@@ -121,14 +131,23 @@ function render() {
     dayDiv.appendChild(label);
 
     day.entries.forEach(function (entry) {
-      dayDiv.appendChild(renderEntry(entry));
+      dayDiv.appendChild(renderEntry(entry, statusMap[entry.locator] || null));
     });
 
     daysEl.appendChild(dayDiv);
   });
 }
 
-function renderEntry(entry) {
+function formatUpdatedAt(iso) {
+  try {
+    var d = new Date(iso);
+    return d.toLocaleString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
+  } catch (e) {
+    return iso;
+  }
+}
+
+function renderEntry(entry, existing) {
   var card = document.createElement('div');
   card.className = 'entry';
 
@@ -148,12 +167,13 @@ function renderEntry(entry) {
 
   var statusBtns = document.createElement('div');
   statusBtns.className = 'status-btns';
-  var draftStatus = null;
+  var draftStatus = existing ? existing.status : null;
   ['Confirmed', 'Rejected', 'Pending'].forEach(function (v) {
     var b = document.createElement('button');
     b.type = 'button';
     b.dataset.v = v;
     b.textContent = v;
+    if (existing && existing.status === v) b.classList.add('active');
     b.addEventListener('click', function () {
       draftStatus = v;
       Array.prototype.forEach.call(statusBtns.querySelectorAll('button'), function (btn) {
@@ -168,38 +188,41 @@ function renderEntry(entry) {
   var agentInput = document.createElement('input');
   agentInput.type = 'text';
   agentInput.className = 'agent-input';
-  agentInput.placeholder = 'DiamondAir agent name';
+  agentInput.placeholder = 'Name of agent doing the escort';
+  if (existing && existing.agentName) agentInput.value = existing.agentName;
   actionRow.appendChild(agentInput);
 
   var saveBtn = document.createElement('button');
   saveBtn.type = 'button';
   saveBtn.className = 'save-btn';
-  saveBtn.textContent = 'Save';
-  saveBtn.disabled = true;
+  // Already has a saved answer (from a prior visit, or another device) ->
+  // this button now just re-submits any change, so it starts enabled and
+  // labeled "Update" instead of waiting for a fresh button click.
+  saveBtn.textContent = existing ? 'Update' : 'Save';
+  saveBtn.disabled = !existing;
   actionRow.appendChild(saveBtn);
 
   var savedTag = document.createElement('span');
   savedTag.className = 'saved-tag';
-  savedTag.style.display = 'none';
+  savedTag.style.display = existing ? 'inline' : 'none';
   savedTag.textContent = '✓ Saved — ANA notified';
   actionRow.appendChild(savedTag);
 
-  var errorTag = document.createElement('div');
-  errorTag.className = 'name-error';
-  errorTag.style.display = 'none';
-  errorTag.textContent = 'Please enter your name before saving.';
+  var updatedLine = document.createElement('div');
+  updatedLine.className = 'updated-line';
+  updatedLine.style.display = existing ? 'block' : 'none';
+  updatedLine.textContent = existing ? ('Last updated: ' + formatUpdatedAt(existing.updatedAt)) : '';
+  actionRow.appendChild(updatedLine);
 
   card.appendChild(actionRow);
-  card.appendChild(errorTag);
 
   saveBtn.addEventListener('click', function () {
+    // No name required at any point — DiamondAir's agent name is often only
+    // known on the day, or within 24 hours before. A status can be saved
+    // with no name yet, and this same Save button stays usable afterward so
+    // the name (or the status) can be added or changed later, any number of
+    // times, without reloading the page.
     var agentName = agentInput.value.trim();
-    var needsName = draftStatus === 'Confirmed' || draftStatus === 'Rejected';
-    if (needsName && !agentName) {
-      errorTag.style.display = 'block';
-      return;
-    }
-    errorTag.style.display = 'none';
 
     saveBtn.disabled = true;
     saveBtn.textContent = 'Saving…';
@@ -209,8 +232,11 @@ function renderEntry(entry) {
         setTimeout(function () {
           submitOnce(entry.locator, draftStatus, agentName).catch(function () {});
         }, 1000);
-        saveBtn.style.display = 'none';
+        saveBtn.disabled = false;
+        saveBtn.textContent = 'Update';
         savedTag.style.display = 'inline';
+        updatedLine.style.display = 'block';
+        updatedLine.textContent = 'Last updated: just now';
       })
       .catch(function () {
         saveBtn.disabled = false;
@@ -222,7 +248,31 @@ function renderEntry(entry) {
   return card;
 }
 
-render();
+// Bootstrap: try to load current status from GitHub before first render, so
+// rows already answered show correctly from the very first paint. If the
+// fetch fails (repo not public yet, placeholder URL, offline, etc.) the page
+// still works fully as a fresh/blank form — this is a nice-to-have layer on
+// top of the core submit flow, never a blocker to using the page.
+function fetchStatusAndRender() {
+  if (STATUS_JSON_URL.indexOf('PASTE_') !== -1) {
+    render({}); // placeholder URL not filled in yet — just render blank
+    return;
+  }
+  fetch(STATUS_JSON_URL + '?t=' + Date.now()) // cache-bust GitHub's CDN
+    .then(function (resp) {
+      if (!resp.ok) throw new Error('status.json fetch failed: ' + resp.status);
+      return resp.json();
+    })
+    .then(function (statusMap) {
+      render(statusMap);
+    })
+    .catch(function (err) {
+      console.warn('Could not load current status (page still fully usable):', err);
+      render({});
+    });
+}
+
+fetchStatusAndRender();
 </script>
 </body>
 </html>
