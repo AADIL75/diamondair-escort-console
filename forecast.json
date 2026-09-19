@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T22:04:50.555Z",
+  "generatedAt": "2026-09-19T22:19:58.985Z",
   "days": [
     {
       "date": "04 Sep 26",
@@ -53,10 +53,10 @@
           "nameEn": "SASE/KATSUYA",
           "nameJp": "佐瀬　克也",
           "company": "YYYY/FFFX PRES OF TAIYO YUDEN",
-          "status": "",
-          "agentName": "",
-          "updatedAt": "2026-09-19T22:04:50.554Z",
-          "anaFlag": "new",
+          "status": "Confirmed",
+          "agentName": "Test",
+          "updatedAt": "2026-09-19T22:19:58.985Z",
+          "anaFlag": "",
           "anaFlagAt": "2026-09-19T22:04:50.555Z"
         }
       ]
