@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T21:54:06.615Z",
+  "generatedAt": "2026-09-19T21:54:12.915Z",
   "days": [
     {
       "date": "04 Sep 26",
@@ -44,6 +44,23 @@
           "status": "Pending",
           "agentName": "",
           "updatedAt": "2026-09-19T21:32:58.800Z"
+        }
+      ]
+    },
+    {
+      "date": "06 Sep 26",
+      "entries": [
+        {
+          "locator": "FJVNTG",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "nameEn": "SASAKI/KEIGO",
+          "nameJp": "佐々木　啓吾",
+          "company": "YYYY/FFFF SNR MAN DIR OF SUMITOMO CHEMICAL",
+          "status": "",
+          "agentName": "",
+          "updatedAt": "2026-09-19T21:54:12.914Z"
         }
       ]
     }
