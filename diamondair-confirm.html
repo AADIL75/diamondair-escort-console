@@ -115,6 +115,23 @@ var FORECAST_RAW_URL = 'https://raw.githubusercontent.com/aadil75/diamondair-esc
 
 var STATUS_VALUES = ['Confirmed', 'Rejected', 'Pending'];
 
+// Every value interpolated into innerHTML below comes from the ANA sheet
+// (staff-entered / FOREST-imported), not directly from anything a visitor to
+// this public page submits — but nothing upstream guarantees it's HTML-safe,
+// and this page has no server-side sanitization step of its own. Escaping
+// here is cheap defense-in-depth against a stray "<" or "&" in a name/company
+// field breaking the layout, or — in a worse case, e.g. a compromised sheet
+// editor — a deliberately crafted value running script in every DiamondAir
+// agent's browser when the page loads.
+function escHtml_(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 function buildUrl(locator, status, agentName) {
   var params = [
     ENTRY_LOCATOR + '=' + encodeURIComponent(locator),
@@ -148,7 +165,7 @@ function render(days) {
     var count = (day.entries || []).length;
     var label = document.createElement('div');
     label.className = 'day-label';
-    label.innerHTML = '<span>' + day.date + '</span><span class="day-count">' + count + (count === 1 ? ' request' : ' requests') + '</span>';
+    label.innerHTML = '<span>' + escHtml_(day.date) + '</span><span class="day-count">' + count + (count === 1 ? ' request' : ' requests') + '</span>';
     dayDiv.appendChild(label);
 
     (day.entries || []).forEach(function (entry) {
@@ -208,12 +225,12 @@ function renderEntry(entry) {
   var top = document.createElement('div');
   top.className = 'entry-top';
   top.innerHTML =
-    '<span class="pill flight">' + entry.flight + '</span>' +
-    '<span class="pill ' + (entry.category === 'MAAA' ? 'cat-maaa' : 'cat-vip') + '">' + entry.category + ' ' + entry.code + '</span>' +
-    '<span class="name-en">' + entry.nameEn + '</span>' +
-    '<span class="name-jp">' + entry.nameJp + '</span>' +
-    '<span class="company">' + entry.company + '</span>' +
-    '<span class="locator-tag">' + entry.locator + '</span>';
+    '<span class="pill flight">' + escHtml_(entry.flight) + '</span>' +
+    '<span class="pill ' + (entry.category === 'MAAA' ? 'cat-maaa' : 'cat-vip') + '">' + escHtml_(entry.category) + ' ' + escHtml_(entry.code) + '</span>' +
+    '<span class="name-en">' + escHtml_(entry.nameEn) + '</span>' +
+    '<span class="name-jp">' + escHtml_(entry.nameJp) + '</span>' +
+    '<span class="company">' + escHtml_(entry.company) + '</span>' +
+    '<span class="locator-tag">' + escHtml_(entry.locator) + '</span>';
   card.appendChild(top);
 
   // A cancelled row has nothing left to do — show it (so it isn't just
