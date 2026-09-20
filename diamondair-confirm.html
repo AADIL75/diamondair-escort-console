@@ -94,6 +94,16 @@
 // ============================================================================
 var FORM_ACTION       = 'https://docs.google.com/forms/d/e/1FAIpQLSfMwyXtNYPM15wHDlmiFmc1PGAN9w99weXiUxS3cGf7OEAwxA/formResponse';
 var ENTRY_LOCATOR     = 'entry.120528962';  // Locator
+// A round trip (e.g. arriving on NH211, returning on NH212 a few days
+// later) shares ONE locator across two rows, so locator alone can't tell
+// them apart once DiamondAir answers — Awais: "it adds to both rows, NH211
+// and NH212, as it is looking at locator only". This "Flight" question's
+// entry ID was confirmed from Awais's own "Get pre-filled link" URL
+// (…&entry.1226001056=NH211). The RECEIVING side (DiamondAirTestTrigger.gs's
+// onFormSubmit, via firstAnswer(responses, 'Flight')) matches by the
+// Form's own question TITLE text, not this ID — that title needs to be
+// exactly "Flight" (case-sensitive) for the two sides to agree.
+var ENTRY_FLIGHT      = 'entry.1226001056';
 var ENTRY_STATUS      = 'entry.1403594564'; // Escort status
 var ENTRY_AGENT_NAME  = 'entry.20045887';   // DiamondAir agent name
 
@@ -134,17 +144,18 @@ function escHtml_(s) {
     .replace(/'/g, '&#39;');
 }
 
-function buildUrl(locator, status, agentName) {
+function buildUrl(locator, flight, status, agentName) {
   var params = [
     ENTRY_LOCATOR + '=' + encodeURIComponent(locator),
+    ENTRY_FLIGHT + '=' + encodeURIComponent(flight),
     ENTRY_STATUS + '=' + encodeURIComponent(status),
     ENTRY_AGENT_NAME + '=' + encodeURIComponent(agentName)
   ].join('&').replace(/%20/g, '+');
   return FORM_ACTION + '?' + params;
 }
 
-function submitOnce(locator, status, agentName) {
-  return fetch(buildUrl(locator, status, agentName), { method: 'GET', mode: 'no-cors' });
+function submitOnce(locator, flight, status, agentName) {
+  return fetch(buildUrl(locator, flight, status, agentName), { method: 'GET', mode: 'no-cors' });
 }
 
 function render(days) {
@@ -311,10 +322,10 @@ function renderEntry(entry) {
     saveBtn.disabled = true;
     saveBtn.textContent = 'Saving…';
 
-    submitOnce(entry.locator, draftStatus, agentName)
+    submitOnce(entry.locator, entry.flight, draftStatus, agentName)
       .then(function () {
         setTimeout(function () {
-          submitOnce(entry.locator, draftStatus, agentName).catch(function () {});
+          submitOnce(entry.locator, entry.flight, draftStatus, agentName).catch(function () {});
         }, 1000);
         saveBtn.disabled = false;
         saveBtn.textContent = 'Update';
