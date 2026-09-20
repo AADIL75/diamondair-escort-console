@@ -1,98 +1,113 @@
 {
-  "generatedAt": "2026-09-19T22:44:25.264Z",
+  "generatedAt": "2026-09-20T20:19:45.246Z",
   "days": [
     {
-      "date": "04 Sep 26",
+      "date": "08 Sep 26",
       "entries": [
         {
-          "locator": "DA8FGS",
-          "flight": "NH212",
-          "category": "VIP",
-          "code": "C1",
-          "nameEn": "FUJIMOTO/MASAYOSHI",
-          "nameJp": "藤本　昌義",
-          "company": "CHMN OF SOJITZ",
-          "status": "Confirmed",
-          "agentName": "Test",
-          "updatedAt": "2026-09-19T21:32:51.201Z"
+          "locator": "",
+          "flight": "NH211",
+          "category": "MAAA",
+          "code": "",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-20T20:19:45.235Z"
         },
         {
-          "locator": "DG3DK8",
+          "locator": "FLSG5X",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-20T20:19:45.245Z"
+        },
+        {
+          "locator": "EUOTJD",
           "flight": "NH212",
           "category": "VIP",
-          "code": "C3",
-          "nameEn": "MORIMOTO/HIRONORI",
-          "nameJp": "森本　浩徳",
-          "company": "SNR MAN DIR OF MITSUI SUMITOMO INSURANCE",
-          "status": "Confirmed",
+          "code": "C2",
+          "status": "",
           "agentName": "",
-          "updatedAt": "2026-09-19T22:26:18.912Z",
-          "anaFlag": ""
+          "connection": "",
+          "updatedAt": "2026-09-20T20:19:45.245Z"
         }
       ]
     },
     {
-      "date": "07 Sep 26",
-      "entries": [
-        {
-          "locator": "DNPPGN",
-          "flight": "NH211",
-          "category": "VIP",
-          "code": "C2",
-          "nameEn": "GOTO/MUNETOSHI",
-          "nameJp": "後藤　宗利",
-          "company": "YYYY/FFFF PRES OF MAKITA",
-          "status": "Confirmed",
-          "agentName": "",
-          "updatedAt": "2026-09-19T22:21:25.204Z",
-          "anaFlag": ""
-        },
-        {
-          "locator": "EXX3WG",
-          "flight": "NH211",
-          "category": "VIP",
-          "code": "C2",
-          "nameEn": "SASE/KATSUYA",
-          "nameJp": "佐瀬　克也",
-          "company": "YYYY/FFFX PRES OF TAIYO YUDEN",
-          "status": "Confirmed",
-          "agentName": "Test",
-          "updatedAt": "2026-09-19T22:19:58.985Z",
-          "anaFlag": "",
-          "anaFlagAt": "2026-09-19T22:04:50.555Z"
-        }
-      ]
-    },
-    {
-      "date": "06 Sep 26",
+      "date": "09 Sep 26",
       "entries": [
         {
           "locator": "FJVNTG",
-          "flight": "NH211",
+          "flight": "NH212",
           "category": "VIP",
           "code": "C2",
-          "nameEn": "SASAKI/KEIGO",
-          "nameJp": "佐々木　啓吾",
-          "company": "YYYY/FFFF SNR MAN DIR OF SUMITOMO CHEMICAL",
           "status": "",
           "agentName": "",
-          "updatedAt": "2026-09-19T21:54:12.914Z",
-          "anaFlag": "cancelled",
-          "anaFlagAt": "2026-09-19T22:04:47.078Z"
-        },
+          "connection": "",
+          "updatedAt": "2026-09-20T20:19:45.245Z"
+        }
+      ]
+    },
+    {
+      "date": "10 Sep 26",
+      "entries": [
         {
-          "locator": "F7ENI4",
+          "locator": "DFFASI",
           "flight": "NH211",
           "category": "VIP",
           "code": "C2",
-          "nameEn": "NIWA/SHUNSUKE",
-          "nameJp": "丹羽　俊介",
-          "company": "YYYY/FFFF PRES OF  CENTRAL JAPAN RAILWAY",
-          "status": "Confirmed",
+          "status": "",
           "agentName": "",
-          "updatedAt": "2026-09-19T22:44:25.264Z",
-          "anaFlag": "",
-          "anaFlagAt": "2026-09-19T22:31:58.905Z"
+          "connection": "",
+          "updatedAt": "2026-09-20T20:19:45.245Z"
+        },
+        {
+          "locator": "DK94RU",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-20T20:19:45.245Z"
+        },
+        {
+          "locator": "EDZGNZ",
+          "flight": "NH212",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-20T20:19:45.245Z"
+        }
+      ]
+    },
+    {
+      "date": "11 Sep 26",
+      "entries": [
+        {
+          "locator": "EOKE9S",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-20T20:19:45.245Z"
+        },
+        {
+          "locator": "FNK9TO",
+          "flight": "NH212",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-20T20:19:45.245Z"
         }
       ]
     }
