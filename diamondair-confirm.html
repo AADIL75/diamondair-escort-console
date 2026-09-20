@@ -28,7 +28,6 @@
   .entry:last-child { margin-bottom: 0; }
   .entry.flagged { padding-top: 0; overflow: hidden; }
   .entry.cancelled { background: #f6f6f7; border-color: #d7dbe0; }
-  .entry.cancelled .name-en { color: #8a93a3; text-decoration: line-through; }
   .entry.new-entry { border-color: #e08e00; box-shadow: 0 0 0 1px #e08e00; }
   .entry-top { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 10px; }
   .pill { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; }
@@ -36,9 +35,12 @@
   .pill.cat-vip { background: #fde7e7; color: #a02020; }
   .pill.cat-maaa { background: #e7f0fd; color: #1a5aa0; }
   .pill.connection { background: #fff1d6; color: #8a5a00; }
-  .name-en { font-weight: 700; font-size: 14px; }
-  .name-jp { font-size: 12px; color: #647085; }
-  .locator-tag { font-size: 10px; color: #a3abb8; font-family: monospace; margin-left: auto; }
+  /* Locator is now the ONLY identifier on this page (no passenger name),
+     so it's a prominent dark badge rather than a small muted tag — the
+     small uppercase "LOCATOR" caption keeps it self-explanatory even
+     without a name alongside it for context. */
+  .locator-tag { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; background: #213489; color: #fff; font-family: monospace; font-weight: 800; font-size: 17px; letter-spacing: .5px; padding: 6px 14px; border-radius: 8px; }
+  .locator-tag .locator-label { font-family: Calibri, "Segoe UI", Arial, sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .8px; color: #b9c4ef; text-transform: uppercase; }
   /* Full-bleed solid banner across the top of the card — deliberately loud
      (solid saturated color, white bold text, icon) since these two states
      must never be missable the way a silent add/remove used to be. */
@@ -186,7 +188,10 @@ function formatUpdatedAt(iso) {
 }
 
 // entry comes straight from forecast.json: { locator, flight, category, code,
-// nameEn, nameJp, company, status, agentName, updatedAt }. "status" may be
+// connection, status, agentName, updatedAt } — deliberately no passenger
+// name (see diamondAirRowToEntry_ in Code.gs for why): locator is the only
+// identifier on this public page, so it's rendered as the prominent badge
+// below rather than a small muted tag. "status" may be
 // one of Confirmed/Rejected/Pending (DiamondAir's own answer), or an
 // ANA-internal Escort RQ Status value (e.g. "RQ sent") that isn't one of the
 // three buttons — in that case we still show the row, just with no button
@@ -228,9 +233,7 @@ function renderEntry(entry) {
     '<span class="pill flight">' + escHtml_(entry.flight) + '</span>' +
     '<span class="pill ' + (entry.category === 'MAAA' ? 'cat-maaa' : 'cat-vip') + '">' + escHtml_(entry.category) + ' ' + escHtml_(entry.code) + '</span>' +
     (entry.connection ? '<span class="pill connection">&#9992; ' + escHtml_(entry.connection) + '</span>' : '') +
-    '<span class="name-en">' + escHtml_(entry.nameEn) + '</span>' +
-    '<span class="name-jp">' + escHtml_(entry.nameJp) + '</span>' +
-    '<span class="locator-tag">' + escHtml_(entry.locator) + '</span>';
+    '<span class="locator-tag"><span class="locator-label">Locator</span>' + escHtml_(entry.locator) + '</span>';
   card.appendChild(top);
 
   // A cancelled row has nothing left to do — show it (so it isn't just
