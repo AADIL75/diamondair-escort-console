@@ -1,121 +1,18 @@
 {
-  "generatedAt": "2026-09-20T21:24:17.497Z",
+  "generatedAt": "2026-09-20T21:31:47.956Z",
   "days": [
     {
-      "date": "08 Sep 26",
-      "entries": [
-        {
-          "locator": "",
-          "flight": "NH211",
-          "category": "MAAA",
-          "code": "",
-          "status": "",
-          "agentName": "",
-          "connection": "",
-          "updatedAt": "2026-09-20T20:19:45.235Z"
-        },
-        {
-          "locator": "FLSG5X",
-          "flight": "NH211",
-          "category": "VIP",
-          "code": "C2",
-          "status": "Confirmed",
-          "agentName": "Test",
-          "connection": "",
-          "updatedAt": "2026-09-20T20:22:39.955Z",
-          "anaFlag": ""
-        },
-        {
-          "locator": "EUOTJD",
-          "flight": "NH212",
-          "category": "VIP",
-          "code": "C2",
-          "status": "Confirmed",
-          "agentName": "Test1",
-          "connection": "",
-          "updatedAt": "2026-09-20T20:22:38.325Z",
-          "anaFlag": ""
-        }
-      ]
-    },
-    {
-      "date": "09 Sep 26",
-      "entries": [
-        {
-          "locator": "FJVNTG",
-          "flight": "NH212",
-          "category": "VIP",
-          "code": "C2",
-          "status": "Pending",
-          "agentName": "",
-          "connection": "",
-          "updatedAt": "2026-09-20T20:21:15.933Z",
-          "anaFlag": ""
-        }
-      ]
-    },
-    {
-      "date": "10 Sep 26",
-      "entries": [
-        {
-          "locator": "DFFASI",
-          "flight": "NH211",
-          "category": "VIP",
-          "code": "C2",
-          "status": "Pending",
-          "agentName": "",
-          "connection": "",
-          "updatedAt": "2026-09-20T20:21:19.227Z",
-          "anaFlag": ""
-        },
-        {
-          "locator": "DK94RU",
-          "flight": "NH211",
-          "category": "VIP",
-          "code": "C2",
-          "status": "Confirmed",
-          "agentName": "Test2",
-          "connection": "",
-          "updatedAt": "2026-09-20T20:22:44.094Z",
-          "anaFlag": ""
-        },
-        {
-          "locator": "EDZGNZ",
-          "flight": "NH212",
-          "category": "VIP",
-          "code": "C2",
-          "status": "Rejected",
-          "agentName": "",
-          "connection": "",
-          "updatedAt": "2026-09-20T20:21:24.717Z",
-          "anaFlag": ""
-        }
-      ]
-    },
-    {
-      "date": "11 Sep 26",
+      "date": "21 Sep 26",
       "entries": [
         {
           "locator": "EOKE9S",
-          "flight": "NH211",
-          "category": "VIP",
-          "code": "C2",
-          "status": "Confirmed",
-          "agentName": "Test3",
-          "connection": "",
-          "updatedAt": "2026-09-20T21:24:17.497Z",
-          "anaFlag": ""
-        },
-        {
-          "locator": "FNK9TO",
           "flight": "NH212",
           "category": "VIP",
           "code": "C2",
-          "status": "Pending",
+          "status": "Confirmed",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-20T20:21:33.798Z",
-          "anaFlag": ""
+          "updatedAt": "2026-09-20T21:31:47.953Z"
         }
       ]
     }
