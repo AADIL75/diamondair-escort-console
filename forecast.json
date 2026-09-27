@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T22:10:04.001Z",
+  "generatedAt": "2026-09-27T22:10:10.792Z",
   "days": [
     {
       "date": "27 Sep 26",
@@ -103,6 +103,18 @@
           "agentName": "",
           "connection": "",
           "updatedAt": "2026-09-27T22:10:04.001Z"
+        },
+        {
+          "locator": "D4UJJB",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C3",
+          "status": "",
+          "agentName": "",
+          "connection": "OB: LX327/ZRH/1840",
+          "updatedAt": "2026-09-27T22:10:10.791Z",
+          "anaFlag": "new",
+          "anaFlagAt": "2026-09-27T22:10:10.791Z"
         }
       ]
     },
@@ -154,16 +166,6 @@
     {
       "date": "02 Oct 26",
       "entries": [
-        {
-          "locator": "",
-          "flight": "NH211",
-          "category": "MAAA",
-          "code": "",
-          "status": "",
-          "agentName": "",
-          "connection": "",
-          "updatedAt": "2026-09-27T22:10:04.001Z"
-        },
         {
           "locator": "DGGRLS",
           "flight": "NH212",
