@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T22:10:10.792Z",
+  "generatedAt": "2026-09-27T22:15:11.266Z",
   "days": [
     {
       "date": "27 Sep 26",
@@ -12,7 +12,7 @@
           "status": "RQ sent",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:10:03.999Z"
+          "updatedAt": "2026-09-27T22:15:11.265Z"
         },
         {
           "locator": "DUVWPV",
@@ -22,7 +22,7 @@
           "status": "RQ sent",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:10:04.001Z"
+          "updatedAt": "2026-09-27T22:15:11.265Z"
         }
       ]
     },
@@ -37,7 +37,7 @@
           "status": "RQ sent",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:10:04.001Z"
+          "updatedAt": "2026-09-27T22:15:11.265Z"
         },
         {
           "locator": "DY5Q2E",
@@ -47,7 +47,7 @@
           "status": "RQ sent",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:10:04.001Z"
+          "updatedAt": "2026-09-27T22:15:11.265Z"
         },
         {
           "locator": "D57JMM",
@@ -57,7 +57,7 @@
           "status": "RQ sent",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:10:04.001Z"
+          "updatedAt": "2026-09-27T22:15:11.265Z"
         }
       ]
     },
@@ -72,7 +72,7 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:10:04.001Z"
+          "updatedAt": "2026-09-27T22:15:11.265Z"
         },
         {
           "locator": "D24TSY",
@@ -82,7 +82,7 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:10:04.001Z"
+          "updatedAt": "2026-09-27T22:15:11.265Z"
         },
         {
           "locator": "DE84Z6",
@@ -92,7 +92,7 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:10:04.001Z"
+          "updatedAt": "2026-09-27T22:15:11.265Z"
         },
         {
           "locator": "FWINIT",
@@ -102,19 +102,7 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:10:04.001Z"
-        },
-        {
-          "locator": "D4UJJB",
-          "flight": "NH211",
-          "category": "VIP",
-          "code": "C3",
-          "status": "",
-          "agentName": "",
-          "connection": "OB: LX327/ZRH/1840",
-          "updatedAt": "2026-09-27T22:10:10.791Z",
-          "anaFlag": "new",
-          "anaFlagAt": "2026-09-27T22:10:10.791Z"
+          "updatedAt": "2026-09-27T22:15:11.265Z"
         }
       ]
     },
@@ -129,7 +117,7 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:10:04.001Z"
+          "updatedAt": "2026-09-27T22:15:11.265Z"
         },
         {
           "locator": "FGPL67",
@@ -139,7 +127,7 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:10:04.001Z"
+          "updatedAt": "2026-09-27T22:15:11.265Z"
         },
         {
           "locator": "DY5Q2E",
@@ -149,7 +137,7 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:10:04.001Z"
+          "updatedAt": "2026-09-27T22:15:11.265Z"
         },
         {
           "locator": "D24TSY",
@@ -159,13 +147,23 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:10:04.001Z"
+          "updatedAt": "2026-09-27T22:15:11.265Z"
         }
       ]
     },
     {
       "date": "02 Oct 26",
       "entries": [
+        {
+          "locator": "",
+          "flight": "NH211",
+          "category": "MAAA",
+          "code": "",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-27T22:15:11.265Z"
+        },
         {
           "locator": "DGGRLS",
           "flight": "NH212",
@@ -174,7 +172,7 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:10:04.001Z"
+          "updatedAt": "2026-09-27T22:15:11.265Z"
         }
       ]
     },
@@ -189,7 +187,7 @@
           "status": "",
           "agentName": "",
           "connection": "IB: SK505/CPH/1600",
-          "updatedAt": "2026-09-27T22:10:04.001Z"
+          "updatedAt": "2026-09-27T22:15:11.265Z"
         }
       ]
     },
@@ -204,7 +202,7 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:10:04.001Z"
+          "updatedAt": "2026-09-27T22:15:11.265Z"
         },
         {
           "locator": "FPFQY9",
@@ -214,7 +212,7 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:10:04.001Z"
+          "updatedAt": "2026-09-27T22:15:11.265Z"
         },
         {
           "locator": "EOIBZP",
@@ -224,7 +222,7 @@
           "status": "",
           "agentName": "",
           "connection": "OB: EW7465/HAM/1925",
-          "updatedAt": "2026-09-27T22:10:04.001Z"
+          "updatedAt": "2026-09-27T22:15:11.265Z"
         }
       ]
     }
