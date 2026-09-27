@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T21:32:13.785Z",
+  "generatedAt": "2026-09-27T17:17:07.311Z",
   "days": [
     {
       "date": "21 Sep 26",
@@ -14,6 +14,23 @@
           "connection": "",
           "updatedAt": "2026-09-20T21:32:13.785Z",
           "anaFlag": ""
+        }
+      ]
+    },
+    {
+      "date": "29 Sep 26",
+      "entries": [
+        {
+          "locator": "D57JMM",
+          "flight": "NH212",
+          "category": "VIP",
+          "code": "C2",
+          "status": "RQ sent",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-27T17:17:07.310Z",
+          "anaFlag": "new",
+          "anaFlagAt": "2026-09-27T17:17:07.311Z"
         }
       ]
     }
