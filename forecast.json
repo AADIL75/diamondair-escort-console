@@ -1,25 +1,54 @@
 {
-  "generatedAt": "2026-09-27T22:05:02.783Z",
+  "generatedAt": "2026-09-27T22:10:04.001Z",
   "days": [
     {
-      "date": "21 Sep 26",
+      "date": "27 Sep 26",
       "entries": [
         {
-          "locator": "EOKE9S",
+          "locator": "DF6HTC",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "RQ sent",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-27T22:10:03.999Z"
+        },
+        {
+          "locator": "DUVWPV",
           "flight": "NH212",
           "category": "VIP",
           "code": "C2",
-          "status": "Confirmed",
-          "agentName": "Test4",
+          "status": "RQ sent",
+          "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-20T21:32:13.785Z",
-          "anaFlag": ""
+          "updatedAt": "2026-09-27T22:10:04.001Z"
         }
       ]
     },
     {
       "date": "29 Sep 26",
       "entries": [
+        {
+          "locator": "FGPL67",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "RQ sent",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-27T22:10:04.001Z"
+        },
+        {
+          "locator": "DY5Q2E",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "RQ sent",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-27T22:10:04.001Z"
+        },
         {
           "locator": "D57JMM",
           "flight": "NH212",
@@ -28,9 +57,172 @@
           "status": "RQ sent",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:05:02.782Z",
-          "anaFlag": "new",
-          "anaFlagAt": "2026-09-27T22:05:02.783Z"
+          "updatedAt": "2026-09-27T22:10:04.001Z"
+        }
+      ]
+    },
+    {
+      "date": "30 Sep 26",
+      "entries": [
+        {
+          "locator": "EJUEBH",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-27T22:10:04.001Z"
+        },
+        {
+          "locator": "D24TSY",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-27T22:10:04.001Z"
+        },
+        {
+          "locator": "DE84Z6",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-27T22:10:04.001Z"
+        },
+        {
+          "locator": "FWINIT",
+          "flight": "NH212",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-27T22:10:04.001Z"
+        }
+      ]
+    },
+    {
+      "date": "01 Oct 26",
+      "entries": [
+        {
+          "locator": "E2KFSQ",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "V2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-27T22:10:04.001Z"
+        },
+        {
+          "locator": "FGPL67",
+          "flight": "NH212",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-27T22:10:04.001Z"
+        },
+        {
+          "locator": "DY5Q2E",
+          "flight": "NH212",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-27T22:10:04.001Z"
+        },
+        {
+          "locator": "D24TSY",
+          "flight": "NH212",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-27T22:10:04.001Z"
+        }
+      ]
+    },
+    {
+      "date": "02 Oct 26",
+      "entries": [
+        {
+          "locator": "",
+          "flight": "NH211",
+          "category": "MAAA",
+          "code": "",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-27T22:10:04.001Z"
+        },
+        {
+          "locator": "DGGRLS",
+          "flight": "NH212",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-27T22:10:04.001Z"
+        }
+      ]
+    },
+    {
+      "date": "03 Oct 26",
+      "entries": [
+        {
+          "locator": "ECOIQL",
+          "flight": "NH212",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "IB: SK505/CPH/1600",
+          "updatedAt": "2026-09-27T22:10:04.001Z"
+        }
+      ]
+    },
+    {
+      "date": "04 Oct 26",
+      "entries": [
+        {
+          "locator": "FOM26Z",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-27T22:10:04.001Z"
+        },
+        {
+          "locator": "FPFQY9",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-27T22:10:04.001Z"
+        },
+        {
+          "locator": "EOIBZP",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "OB: EW7465/HAM/1925",
+          "updatedAt": "2026-09-27T22:10:04.001Z"
         }
       ]
     }
