@@ -1,66 +1,6 @@
 {
-  "generatedAt": "2026-09-27T22:44:52.012Z",
+  "generatedAt": "2026-09-29T23:25:56.803Z",
   "days": [
-    {
-      "date": "27 Sep 26",
-      "entries": [
-        {
-          "locator": "DF6HTC",
-          "flight": "NH211",
-          "category": "VIP",
-          "code": "C2",
-          "status": "RQ sent",
-          "agentName": "",
-          "connection": "",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
-        },
-        {
-          "locator": "DUVWPV",
-          "flight": "NH212",
-          "category": "VIP",
-          "code": "C2",
-          "status": "RQ sent",
-          "agentName": "",
-          "connection": "",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
-        }
-      ]
-    },
-    {
-      "date": "29 Sep 26",
-      "entries": [
-        {
-          "locator": "FGPL67",
-          "flight": "NH211",
-          "category": "VIP",
-          "code": "C2",
-          "status": "RQ sent",
-          "agentName": "",
-          "connection": "",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
-        },
-        {
-          "locator": "DY5Q2E",
-          "flight": "NH211",
-          "category": "VIP",
-          "code": "C2",
-          "status": "RQ sent",
-          "agentName": "",
-          "connection": "",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
-        },
-        {
-          "locator": "D57JMM",
-          "flight": "NH212",
-          "category": "VIP",
-          "code": "C2",
-          "status": "RQ sent",
-          "agentName": "",
-          "connection": "",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
-        }
-      ]
-    },
     {
       "date": "30 Sep 26",
       "entries": [
@@ -69,40 +9,40 @@
           "flight": "NH211",
           "category": "VIP",
           "code": "C2",
-          "status": "",
+          "status": "Confirmed",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
+          "updatedAt": "2026-09-29T23:25:56.802Z"
         },
         {
           "locator": "D24TSY",
           "flight": "NH211",
           "category": "VIP",
           "code": "C2",
-          "status": "",
+          "status": "Confirmed",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
+          "updatedAt": "2026-09-29T23:25:56.802Z"
         },
         {
           "locator": "DE84Z6",
           "flight": "NH211",
           "category": "VIP",
           "code": "C2",
-          "status": "",
+          "status": "Confirmed",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
+          "updatedAt": "2026-09-29T23:25:56.802Z"
         },
         {
           "locator": "FWINIT",
           "flight": "NH212",
           "category": "VIP",
           "code": "C2",
-          "status": "",
+          "status": "Confirmed",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
+          "updatedAt": "2026-09-29T23:25:56.802Z"
         }
       ]
     },
@@ -117,7 +57,7 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
+          "updatedAt": "2026-09-29T23:25:56.802Z"
         },
         {
           "locator": "FGPL67",
@@ -127,7 +67,7 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
+          "updatedAt": "2026-09-29T23:25:56.802Z"
         },
         {
           "locator": "DY5Q2E",
@@ -137,7 +77,7 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
+          "updatedAt": "2026-09-29T23:25:56.802Z"
         },
         {
           "locator": "D24TSY",
@@ -147,7 +87,7 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
+          "updatedAt": "2026-09-29T23:25:56.802Z"
         }
       ]
     },
@@ -162,7 +102,7 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
+          "updatedAt": "2026-09-29T23:25:56.802Z"
         },
         {
           "locator": "DGGRLS",
@@ -172,7 +112,7 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
+          "updatedAt": "2026-09-29T23:25:56.802Z"
         }
       ]
     },
@@ -187,7 +127,7 @@
           "status": "",
           "agentName": "",
           "connection": "IB: SK505/CPH/1600",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
+          "updatedAt": "2026-09-29T23:25:56.802Z"
         }
       ]
     },
@@ -202,7 +142,7 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
+          "updatedAt": "2026-09-29T23:25:56.802Z"
         },
         {
           "locator": "FPFQY9",
@@ -212,7 +152,7 @@
           "status": "",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
+          "updatedAt": "2026-09-29T23:25:56.802Z"
         },
         {
           "locator": "EOIBZP",
@@ -222,7 +162,67 @@
           "status": "",
           "agentName": "",
           "connection": "OB: EW7465/HAM/1925",
-          "updatedAt": "2026-09-27T22:44:52.011Z"
+          "updatedAt": "2026-09-29T23:25:56.802Z"
+        }
+      ]
+    },
+    {
+      "date": "05 Oct 26",
+      "entries": [
+        {
+          "locator": "FXROVZ",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-29T23:25:56.802Z"
+        },
+        {
+          "locator": "DV8NHU",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-29T23:25:56.802Z"
+        }
+      ]
+    },
+    {
+      "date": "07 Oct 26",
+      "entries": [
+        {
+          "locator": "DU327Y",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-29T23:25:56.803Z"
+        },
+        {
+          "locator": "E3G3QE",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "",
+          "updatedAt": "2026-09-29T23:25:56.803Z"
+        },
+        {
+          "locator": "DE84Z6",
+          "flight": "NH212",
+          "category": "VIP",
+          "code": "C2",
+          "status": "",
+          "agentName": "",
+          "connection": "IB: IB711/MAD/0825",
+          "updatedAt": "2026-09-29T23:25:56.803Z"
         }
       ]
     }
