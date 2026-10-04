@@ -1,6 +1,41 @@
 {
-  "generatedAt": "2026-10-04T12:45:45.158Z",
+  "generatedAt": "2026-10-04T12:48:14.342Z",
   "days": [
+    {
+      "date": "04 Oct 26",
+      "entries": [
+        {
+          "locator": "FOM26Z",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "Confirmed",
+          "agentName": "SYED",
+          "connection": "",
+          "updatedAt": "2026-10-04T12:48:14.342Z"
+        },
+        {
+          "locator": "FPFQY9",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "Confirmed",
+          "agentName": "MAJEED",
+          "connection": "",
+          "updatedAt": "2026-10-04T12:48:14.342Z"
+        },
+        {
+          "locator": "EOIBZP",
+          "flight": "NH211",
+          "category": "VIP",
+          "code": "C2",
+          "status": "Confirmed",
+          "agentName": "DANIEL",
+          "connection": "OB: EW7465/HAM/1925",
+          "updatedAt": "2026-10-04T12:48:14.342Z"
+        }
+      ]
+    },
     {
       "date": "05 Oct 26",
       "entries": [
@@ -12,8 +47,7 @@
           "status": "Confirmed",
           "agentName": "SYED",
           "connection": "",
-          "updatedAt": "2026-10-04T12:45:45.157Z",
-          "anaFlag": ""
+          "updatedAt": "2026-10-04T12:48:14.342Z"
         },
         {
           "locator": "DV8NHU",
@@ -23,8 +57,7 @@
           "status": "Confirmed",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-10-04T11:52:43.394Z",
-          "anaFlag": ""
+          "updatedAt": "2026-10-04T12:48:14.342Z"
         }
       ]
     },
@@ -39,8 +72,7 @@
           "status": "Pending",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-10-04T11:50:28.570Z",
-          "anaFlag": ""
+          "updatedAt": "2026-10-04T12:48:14.342Z"
         },
         {
           "locator": "DE84Z6",
@@ -50,8 +82,7 @@
           "status": "Pending",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-10-04T11:50:29.665Z",
-          "anaFlag": ""
+          "updatedAt": "2026-10-04T12:48:14.342Z"
         }
       ]
     },
@@ -66,8 +97,7 @@
           "status": "Pending",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-10-04T11:50:32.091Z",
-          "anaFlag": ""
+          "updatedAt": "2026-10-04T12:48:14.342Z"
         },
         {
           "locator": "FXROVZ",
@@ -77,8 +107,7 @@
           "status": "Pending",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-10-04T11:50:33.701Z",
-          "anaFlag": ""
+          "updatedAt": "2026-10-04T12:48:14.342Z"
         },
         {
           "locator": "DV8NHU",
@@ -88,8 +117,7 @@
           "status": "Pending",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-10-04T11:50:36.224Z",
-          "anaFlag": ""
+          "updatedAt": "2026-10-04T12:48:14.342Z"
         }
       ]
     },
@@ -104,8 +132,7 @@
           "status": "Confirmed",
           "agentName": "",
           "connection": "IB: SN2095/BRU/1705",
-          "updatedAt": "2026-10-04T11:50:40.026Z",
-          "anaFlag": ""
+          "updatedAt": "2026-10-04T12:48:14.342Z"
         }
       ]
     },
@@ -120,8 +147,7 @@
           "status": "Pending",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-10-04T11:50:43.121Z",
-          "anaFlag": ""
+          "updatedAt": "2026-10-04T12:48:14.342Z"
         },
         {
           "locator": "DA2MLN",
@@ -131,8 +157,7 @@
           "status": "Pending",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-10-04T11:50:45.407Z",
-          "anaFlag": ""
+          "updatedAt": "2026-10-04T12:48:14.342Z"
         },
         {
           "locator": "E7GPBG",
@@ -142,8 +167,7 @@
           "status": "Pending",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-10-04T11:50:46.271Z",
-          "anaFlag": ""
+          "updatedAt": "2026-10-04T12:48:14.342Z"
         },
         {
           "locator": "F43AFQ",
@@ -153,8 +177,7 @@
           "status": "Pending",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-10-04T11:50:51.428Z",
-          "anaFlag": ""
+          "updatedAt": "2026-10-04T12:48:14.342Z"
         }
       ]
     }
