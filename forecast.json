@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-04T12:48:14.342Z",
+  "generatedAt": "2026-10-05T11:50:24.605Z",
   "days": [
     {
       "date": "04 Oct 26",
@@ -45,9 +45,10 @@
           "category": "VIP",
           "code": "C2",
           "status": "Confirmed",
-          "agentName": "SYED",
+          "agentName": "MOH",
           "connection": "",
-          "updatedAt": "2026-10-04T12:48:14.342Z"
+          "updatedAt": "2026-10-05T11:50:24.605Z",
+          "anaFlag": ""
         },
         {
           "locator": "DV8NHU",
