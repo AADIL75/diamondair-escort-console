@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T11:50:24.605Z",
+  "generatedAt": "2026-10-05T11:50:48.239Z",
   "days": [
     {
       "date": "04 Oct 26",
@@ -56,9 +56,10 @@
           "category": "VIP",
           "code": "C2",
           "status": "Confirmed",
-          "agentName": "",
+          "agentName": "MAJEED",
           "connection": "",
-          "updatedAt": "2026-10-04T12:48:14.342Z"
+          "updatedAt": "2026-10-05T11:50:48.239Z",
+          "anaFlag": ""
         }
       ]
     },
