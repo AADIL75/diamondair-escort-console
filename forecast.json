@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T16:34:55.718Z",
+  "generatedAt": "2026-10-07T16:34:57.611Z",
   "days": [
     {
       "date": "04 Oct 26",
@@ -72,9 +72,9 @@
           "category": "VIP",
           "code": "C2",
           "status": "Confirmed",
-          "agentName": "",
+          "agentName": "KRISTINA",
           "connection": "",
-          "updatedAt": "2026-10-05T13:04:30.380Z",
+          "updatedAt": "2026-10-07T16:34:57.611Z",
           "anaFlag": ""
         },
         {
