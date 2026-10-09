@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T12:51:20.215Z",
+  "generatedAt": "2026-10-09T12:51:22.199Z",
   "days": [
     {
       "date": "04 Oct 26",
@@ -174,10 +174,11 @@
           "flight": "NH211",
           "category": "VIP",
           "code": "C2",
-          "status": "Pending",
+          "status": "Confirmed",
           "agentName": "",
           "connection": "",
-          "updatedAt": "2026-10-04T12:48:14.342Z"
+          "updatedAt": "2026-10-09T12:51:22.199Z",
+          "anaFlag": ""
         },
         {
           "locator": "F43AFQ",
