@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T12:50:41.772Z",
+  "generatedAt": "2026-10-09T12:51:11.260Z",
   "days": [
     {
       "date": "04 Oct 26",
@@ -137,9 +137,10 @@
           "category": "VIP",
           "code": "C2",
           "status": "Confirmed",
-          "agentName": "",
+          "agentName": "ALI",
           "connection": "IB: SN2095/BRU/1705",
-          "updatedAt": "2026-10-04T12:48:14.342Z"
+          "updatedAt": "2026-10-09T12:51:11.259Z",
+          "anaFlag": ""
         }
       ]
     },
